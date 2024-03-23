@@ -14,11 +14,11 @@ admin.initializeApp({
 
 const db = admin.database();
 
-// Rota da página que exibe os agricultor registrados no banco de dados
+// Rota da página que exibe os insumos registrados no banco de dados
 app.get('/', (req, res) => {
     fs.readFile('src/cabecalho.html', (e, cabecalho) => {
         fs.readFile('src/rodape.html', (e, rodape) => {
-            fs.readFile('src/agricultor/agricultor.html', (e, dados) => {
+            fs.readFile('src/insumos/insumos.html', (e, dados) => {
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.write(cabecalho + dados + rodape);
                 res.end();
@@ -27,11 +27,11 @@ app.get('/', (req, res) => {
     });
 });
 
-// Rota da página para abrir formulário para inserir um novo registro de agricultor
+// Rota da página para abrir formulário para inserir um novo registro de insumos
 app.get('/novo', (req, res) => {
     fs.readFile('src/cabecalho.html', (e, cabecalho) => {
         fs.readFile('src/rodape.html', (e, rodape) => {
-            fs.readFile('src/agricultor/novo_agricultor.html', (e, dados) => {
+            fs.readFile('src/insumos/novo_insumos.html', (e, dados) => {
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.write(cabecalho + dados + rodape);
                 res.end();
@@ -40,24 +40,23 @@ app.get('/novo', (req, res) => {
     });
 });
 
-// Rota da página inserir um novo registro de agricultor
+// Rota da página inserir um novo registro de insumos
 app.post('/novo', urlencodedParser, (req, res) => {
     fs.readFile('src/cabecalho.html', (e, cabecalho) => {
         fs.readFile('src/rodape.html', (e, rodape) => {
-            fs.readFile('src/agricultor/agricultor.html', (e, dados) => {
+            fs.readFile('src/insumos/insumos.html', (e, dados) => {
                 let mensagem = "";
                 try{
-                    const docagricultor = db.ref("agricultor").push();
-                    const agricultor = {
+                    const docinsumos = db.ref("insumos").push();
+                    const insumos = {
                         nome: req.body.nome,
-                        email: req.body.email,
-                        senha: req.body.senha,
-                        cpf: req.body.cpf
+                        descricao: req.body.descricao,
+                        foto: req.body.foto,
                     };
-                    docagricultor.set(agricultor);
-                    mensagem = "agricultor inserido com sucesso!";
+                    docinsumos.set(insumos);
+                    mensagem = "insumos inserido com sucesso!";
                 }catch(e){
-                    mensagem = "Erro ao inserir o agricultor!";
+                    mensagem = "Erro ao inserir o insumos!";
                 }
                 dados = dados.toString().replace("{mensagem}", mensagem);
                 res.writeHead(200, {'Content-Type': 'text/html'});
@@ -68,11 +67,11 @@ app.post('/novo', urlencodedParser, (req, res) => {
     });
 });
 
-// Rota da página para abrir formuário para editar os dados de um registro de agricultor
+// Rota da página para abrir formuário para editar os dados de um registro de insumos
 app.get('/editar/:id', (req, res) => {
     fs.readFile('src/cabecalho.html', (e, cabecalho) => {
         fs.readFile('src/rodape.html', (e, rodape) => {
-            fs.readFile('src/agricultor/editar_agricultor.html', (e, dados) => {
+            fs.readFile('src/insumos/editar_insumos.html', (e, dados) => {
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.write(cabecalho + dados + rodape);
                 res.end();
@@ -81,7 +80,7 @@ app.get('/editar/:id', (req, res) => {
     });
 });
 
-// Rota da página para editar os dados de um registro de agricultor
+// Rota da página para editar os dados de um registro de insumos
 app.post('/editar', urlencodedParser, (req, res) => {
     fs.readFile('src/cabecalho.html', (e, cabecalho) => {
         fs.readFile('src/rodape.html', (e, rodape) => {
@@ -94,11 +93,11 @@ app.post('/editar', urlencodedParser, (req, res) => {
     });
 });
 
-// Rota da página para abrir formulário para excluir um registro de um agricultor
+// Rota da página para abrir formulário para excluir um registro de um insumos
 app.get('/excluir/:id', (req, res) => {
     fs.readFile('src/cabecalho.html', (e, cabecalho) => {
         fs.readFile('src/rodape.html', (e, rodape) => {
-            fs.readFile('src/agricultor/excluir_agricultor.html', (e, dados) => {
+            fs.readFile('src/insumos/excluir_insumos.html', (e, dados) => {
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.write(cabecalho + dados + rodape);
                 res.end();
@@ -107,7 +106,7 @@ app.get('/excluir/:id', (req, res) => {
     });
 });
 
-// Rota da página para excluir um registro de um agricultor
+// Rota da página para excluir um registro de um insumos
 app.post('/excluir', urlencodedParser, (req, res) => {
     fs.readFile('src/cabecalho.html', (e, cabecalho) => {
         fs.readFile('src/rodape.html', (e, rodape) => {

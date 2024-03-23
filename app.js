@@ -50,3 +50,7 @@ app.get('/home', (req, res) => {
 
 const livrosRouter = require("./livrosRouter");
 app.use("/agricultor", livrosRouter);
+
+const insumosRouter = require("./insumosRouter");
+app.use("/insumos", insumosRouter);
+
