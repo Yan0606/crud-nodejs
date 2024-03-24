@@ -60,3 +60,6 @@ app.use("/propriedade", propriedadeRouter);
 const talhaoRouter = require("./talhaoRouter");
 app.use("/talhao", talhaoRouter);
 
+const culturaRouter = require("./culturaRouter");
+app.use("/cultura", culturaRouter);
+
