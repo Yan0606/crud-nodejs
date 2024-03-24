@@ -57,3 +57,6 @@ app.use("/insumos", insumosRouter);
 const propriedadeRouter = require("./propriedadeRouter");
 app.use("/propriedade", propriedadeRouter);
 
+const talhaoRouter = require("./talhaoRouter");
+app.use("/talhao", talhaoRouter);
+
