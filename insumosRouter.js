@@ -6,10 +6,7 @@ const app = express();
 
 var admin = require("firebase-admin");
 var serviceAccount = require("./serviceAccountKey.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://appnodejs-8f9ba-default-rtdb.firebaseio.com"
-});
+
 
 
 const db = admin.database();
@@ -49,6 +46,7 @@ app.post('/novo', urlencodedParser, (req, res) => {
                 try{
                     const docinsumos = db.ref("insumos").push();
                     const insumos = {
+                        id: req.body.id,
                         nome: req.body.nome,
                         descricao: req.body.descricao,
                         foto: req.body.foto,
