@@ -1,22 +1,22 @@
 
         <h3>Excluir agricultor</h3>
-        <form>
-            <input type="hidden" class="form-control" id="id" name="id" placeholder="ID" >
+        <form action="/agricultor/excluir" method="post">
+            <input type="hidden" class="form-control" id="id" name="id" placeholder="ID" value="{id}">
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome do agricultor</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do agricultor">
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do agricultor" value="{nome}" disabled>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">email</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="email">
+                <input type="text" class="form-control" id="email" name="email" placeholder="email"value="{email}" disabled>
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">senha</label>
-                <input type="text" class="form-control" id="senha" name="senha" placeholder="senha">
+                <input type="text" class="form-control" id="senha" name="senha" placeholder="senha" value="{senha}" disabled>
             </div>
             <div class="mb-3">
                 <label for="cpf" class="form-label">cpf</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="cpf">
+                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="cpf" value="{cpf}" disabled>
             </div>
             <button type="submit" class="btn btn-danger">Excluir</button>
         </form>
