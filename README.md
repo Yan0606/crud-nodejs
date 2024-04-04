@@ -1,4 +1,4 @@
-# Project CRUDS NodeJs
+# Project CRUDs NodeJs
 <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=nodejs,firebase" /></a>
 
 
